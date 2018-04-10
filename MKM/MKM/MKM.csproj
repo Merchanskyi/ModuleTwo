@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileReaderService.cs" />
+    <Compile Include="FileSaverService.cs" />
+    <Compile Include="FinderService.cs" />
+    <Compile Include="IModuleTwoInvoker.cs" />
+    <Compile Include="ModuleTwoInvoker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

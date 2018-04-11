@@ -1,15 +1,15 @@
-﻿//namespace MKM
-//{
-//    public interface IFileReaderService
-//    {
-//        string GetFileContent(string location, string fileName);
-//    }
+﻿namespace MKM
+{
+    public interface IFileReaderService
+    {
+        string GetFileContent(string location, string fileName);
+    }
 
-//    public class FileReaderService : IFileReaderService
-//    {
-//        public string GetFileContent(string location, string fileName)
-//        {
-//            //your code here
-//        }
-//    }
-//}
+    public class FileReaderService : IFileReaderService
+    {
+        public string GetFileContent(string location, string fileName)
+        {
+            //your code here
+        }
+    }
+}

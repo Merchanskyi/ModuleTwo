@@ -58,7 +58,7 @@ namespace MKM
             }
             catch (Exception e)
             {
-                // your code here
+                Console.WriteLine("Something went wrong while saving the file. Error: " + e.Message);
             }
 
             return result;

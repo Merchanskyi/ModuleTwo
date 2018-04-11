@@ -8,6 +8,6 @@ namespace MKM
 
         string GetFileContent(string location, string fileName);
 
-        bool SaveFile(string content, string lcoation, string fileName);
+        bool SaveFile(string content, string location, string fileName);
     }
 }

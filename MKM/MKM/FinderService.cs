@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -13,26 +12,9 @@ namespace MKM
 
     public class FinderService : IFinderService
     {
-        public void FinderFile()
-        {
-            var currentDirectory = Directory.GetCurrentDirectory();
-
-            Console.Write("Enter search disk (Example: C:\\): ");
-            var dir = Console.ReadLine();
-
-            Console.Write("Enter the name of the file(with pattern): ");
-            var find = Console.ReadLine();
-
-            var files = FindFile(@dir, find);
-
-            foreach (var file in files)
-            {
-                Process.Start("notepad.exe", file);
-            }
-
-            Console.ReadKey();
-        }
-
+        ///<summary> Save a new text to the existed file and rename it adding '_reverse' to the file name. </summary>
+        ///<param name ="baseDirectory" type = string> baseDirectory. </param>
+        ///<param name ="fileName" type = string> File name (e.g. 'name.txt'). </param>
         public List<string> FindFile(string baseDirectory, string fileName)
         {
             var files = new List<string>();
@@ -44,7 +26,7 @@ namespace MKM
 
             try
             {
-                Console.WriteLine(baseDirectory); // Отображать все директории в которые заходит поисковик
+                Console.WriteLine(baseDirectory);
 
                 files.AddRange(Directory.GetFiles(baseDirectory).Where(x => Path.GetFileName(x).ToLower() == fileName.ToLower()));
 
@@ -65,10 +47,7 @@ namespace MKM
                     }
                 }
             }
-            catch
-            {
-                Console.WriteLine("Файл не найден!");
-            }
+            catch { }
 
             return files;
         }

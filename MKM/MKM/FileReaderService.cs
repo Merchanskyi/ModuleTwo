@@ -28,6 +28,12 @@ namespace MKM
                     output += fileContent[symbol];
                 }
             }
+            catch (PathTooLongException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"The file specified in {filePath} is too long.");
+                Console.ResetColor();
+                }
             catch (FileNotFoundException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;

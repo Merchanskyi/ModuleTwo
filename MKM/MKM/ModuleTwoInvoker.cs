@@ -18,18 +18,15 @@ namespace MKM
 
         public List<string> FindFile(string baseDirectory, string fileName)
         {
-            var result = new List<string>();
+            var files = new List<string>();
 
             try
             {
-                result = _finderService.FindFile(baseDirectory, fileName);
+                files = _finderService.FindFile(baseDirectory, fileName);
             }
-            catch
-            {
-                Console.WriteLine("Файл не найден!");
-            }
+            catch { }
 
-            return result;
+            return files;
         }
 
         public string GetFileContent(string location, string fileName)
@@ -42,7 +39,9 @@ namespace MKM
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something went wrong");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nSomething went wrong " + e.Message);
+                Console.ResetColor();
             }
 
             return result;
@@ -58,7 +57,9 @@ namespace MKM
             }
             catch (Exception e)
             {
-                // your code here
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nSomething went wrong while saving the file. Error: " + e.Message);
+                Console.ResetColor();
             }
 
             return result;

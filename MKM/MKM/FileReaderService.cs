@@ -11,6 +11,9 @@ namespace MKM
 
     public class FileReaderService : IFileReaderService
     {
+        ///<summary> Reading a text from the file and reversing content of the file. </summary>        
+        ///<param name ="location" type = string> Full path to the file (e.g. 'D:\folder\name.txt'). </param>
+        ///<param name ="fileName" type = string> File name (e.g. 'name.txt'). </param>        
         public string GetFileContent(string location, string fileName)
         {
             string output = string.Empty;
@@ -19,7 +22,6 @@ namespace MKM
             try
             {
                 string fileContent = File.ReadAllText(filePath);
-
 
                 for (int symbol = fileContent.Length - 1; symbol >= 0; symbol--)
                 {

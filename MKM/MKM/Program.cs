@@ -17,32 +17,32 @@ namespace MKM
             Console.Write("Enter the name of the file(with pattern): ");
             var fileName = Console.ReadLine();
 
-            List<string> location1 = invoker.FindFile(@dir, fileName);
+            List<string> locationList = invoker.FindFile(@dir, fileName);
             
-            string location = "";
+            var location = "";
             try
             {
-                location = location1[0];
+                location = locationList[0];
+
+                string content = invoker.GetFileContent(location, fileName);
+
+                if (string.IsNullOrEmpty(content))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nFile is empty!");
+                    Console.ResetColor();
+                }
+                else if (invoker.SaveFile(content, location, fileName) == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\n{fileName} file is successfully found, rewritten and renamed.");
+                    Console.ResetColor();
+                }
             }
             catch
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("File not found!");
-                Console.ResetColor();
-            }
-
-            string content = invoker.GetFileContent(location, fileName);
-
-            if (string.IsNullOrEmpty(content))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nFile is empty");
-                Console.ResetColor();
-            }
-            else if (invoker.SaveFile(content, location, fileName) == true)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\n{fileName} file is found and renamed.");
+                Console.WriteLine("\nFile is not found!");
                 Console.ResetColor();
             }
 

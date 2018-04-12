@@ -40,7 +40,7 @@ namespace MKM
             catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Something went wrong" + e.Message);
+                Console.WriteLine("\nSomething went wrong " + e.Message);
                 Console.ResetColor();
             }
 
@@ -58,7 +58,7 @@ namespace MKM
             catch (Exception e)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Something went wrong while saving the file. Error: " + e.Message);
+                Console.WriteLine("\nSomething went wrong while saving the file. Error: " + e.Message);
                 Console.ResetColor();
             }
 
